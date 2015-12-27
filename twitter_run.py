@@ -18,13 +18,18 @@ from markov_python.cc_markov import MarkovChain
 #@KingJames
 #@StephenCurry30
 
+# Get Twitter Handle
 twitter_handle = raw_input("Enter Twitter Handle (specify @handle_name): ")
+
+# Create MarkovChain
 mc = MarkovChain()
 
+# Fetch Tweets for Twitter Handle and add to Markov Chain
 tweets = fetch_tweets(twitter_handle)
 for tweet in tweets:
     mc.add_string(tweet)
 
+# Get next random text from Markov Chain
 nextTweet= mc.generate_text(100)
 print "\n"
 print "Using Markov Chain. Here's the next possible tweet for " + twitter_handle
